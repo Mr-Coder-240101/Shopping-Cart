@@ -12,7 +12,6 @@ class Modal extends Component {
     render() {
         return (<Fragment>
             <div className="modal-container" id="add-product">
-
                 <div className="modal">
                     <div className="modal__details">
                         <h1 className="modal__title">Add Product</h1>
@@ -34,7 +33,6 @@ class Modal extends Component {
                             <a href="#shopping-cart" className="modal__btn" onClick={this.addNewProduct}>Save &rarr;</a>
                         </div>
                     </center>
-
                 </div>
             </div>
         </Fragment>);
