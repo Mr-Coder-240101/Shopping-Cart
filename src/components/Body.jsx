@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import Table from "./body/Table.jsx";
 import Buttons from "./body/Buttons.jsx";
+import Modal from "./body/Modal.jsx";
 
 class Body extends Component {
 
@@ -11,17 +12,13 @@ class Body extends Component {
     decrementPriceCount = (productName) => {
         let product = this.state.products.find(product => product.productName === productName);
         product.productCount = product.productCount - 1;
-        this.setState({
-            products: this.state.products
-        });
+        this.setState({products: this.state.products});
     }
 
     incrementPriceCount = (productName) => {
         let product = this.state.products.find(product => product.productName === productName);
         product.productCount = product.productCount + 1;
-        this.setState({
-            products: this.state.products
-        });
+        this.setState({products: this.state.products});
     }
 
     addNewProduct = (product) => {
@@ -35,10 +32,13 @@ class Body extends Component {
 
     render() {
         return (<Fragment>
-            <div className="cart transition is-open">
-                <Table products={this.state.products} incrementPriceCount={this.incrementPriceCount} decrementPriceCount={this.decrementPriceCount}/>
-                <Buttons addNewProduct={this.addNewProduct} clearCart={this.clearCart}/>
-            </div>
+
+                <div className="cart transition is-open">
+                    <Table products={this.state.products} incrementPriceCount={this.incrementPriceCount} decrementPriceCount={this.decrementPriceCount}/>
+                    <Buttons clearCart={this.clearCart}/>
+                    <Modal addNewProduct={this.addNewProduct}/>
+                </div>
+
         </Fragment>);
     }
 
