@@ -7,6 +7,8 @@ class Modal extends Component {
         const productPrice = document.getElementById("productPrice").value;
         const productCount = 1;
         this.props.addNewProduct({productName, productPrice, productCount});
+        document.getElementById("productName").value = "";
+        document.getElementById("productPrice").value = "";
     }
 
     render() {
