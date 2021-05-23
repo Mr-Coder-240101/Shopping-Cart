@@ -6,12 +6,12 @@ import TableFooter from "./table/TableFooter.jsx";
 
 class Table extends Component {
 
-    decrementPriceCount = (productName) => {
-        this.props.decrementPriceCount(productName);
+    decrementPriceCount = (productId) => {
+        this.props.decrementPriceCount(productId);
     }
 
-    incrementPriceCount = (productName) => {
-        this.props.incrementPriceCount(productName);
+    incrementPriceCount = (productId) => {
+        this.props.incrementPriceCount(productId);
     }
 
     getRows = () => {
@@ -19,7 +19,7 @@ class Table extends Component {
             return <TableRow key={uuidv4()} message="Cart Is Currently Empty. Add Products In Cart"/>
         } else {
             return this.props.products.map((product) => {
-                return <TableRow key={uuidv4()} productName={product.productName} productPrice={product.productPrice} productCount={product.productCount} incrementPriceCount={this.incrementPriceCount} decrementPriceCount={this.decrementPriceCount}/>
+                return <TableRow key={uuidv4()} product={product} incrementPriceCount={this.incrementPriceCount} decrementPriceCount={this.decrementPriceCount}/>
             })
         }
     }

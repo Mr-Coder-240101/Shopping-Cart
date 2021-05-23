@@ -9,14 +9,14 @@ class Body extends Component {
         products: []
     }
 
-    decrementPriceCount = (productName) => {
-        let product = this.state.products.find(product => product.productName === productName);
+    decrementPriceCount = (productId) => {
+        let product = this.state.products.find(product => product.productId === productId);
         product.productCount = product.productCount - 1;
         this.setState({products: this.state.products});
     }
 
-    incrementPriceCount = (productName) => {
-        let product = this.state.products.find(product => product.productName === productName);
+    incrementPriceCount = (productId) => {
+        let product = this.state.products.find(product => product.productId === productId);
         product.productCount = product.productCount + 1;
         this.setState({products: this.state.products});
     }
